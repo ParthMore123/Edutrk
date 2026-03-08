@@ -1,4 +1,4 @@
-# Student Learning & Assignment Management App
+# Edutrk - Student Learning & Assignment Management App
 
 Run:
 pip install -r requirements.txt
