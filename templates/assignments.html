@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}Assignments | EduTrack{% endblock %}
+{% block content %}
+<header class="page-header d-flex justify-content-between align-items-end flex-wrap gap-3">
+	<div>
+		<p class="text-muted fw-bold text-uppercase mb-1" style="letter-spacing:1px;">Tracking</p>
+		<h1 class="mb-0">All Assignments</h1>
+	</div>
+	<a href="/add-assignment" class="btn btn-primary"><i class="fa-solid fa-plus me-2"></i>Add Assignment</a>
+</header>
+
+<div class="glass table-container">
+	<div class="table-responsive">
+		<table class="table table-hover align-middle mb-0">
+			<thead>
+				<tr>
+					<th>Subject</th>
+					<th>Task</th>
+					<th>Due Date</th>
+					<th>Status</th>
+					<th class="text-end">Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for row in assignments %}
+				<tr>
+					<td><span class="fw-bold">{{ row.subject }}</span></td>
+					<td>{{ row.title }}</td>
+					<td>
+						<i class="fa-regular fa-calendar text-muted me-2"></i>
+						{{ row.due_date }}
+					</td>
+					<td>
+						{% if row.status == "Pending" %}
+						<span class="badge-status badge-pending"><i class="fa-solid fa-clock me-1"></i> Pending</span>
+						{% else %}
+						<span class="badge-status badge-submitted"><i class="fa-solid fa-check me-1"></i>
+							Completed</span>
+						{% endif %}
+					</td>
+					<td class="text-end">
+						{% if row.status == "Pending" %}
+						<a href="/submit/{{ row.id }}" class="btn btn-sm btn-outline-success me-1"
+							title="Mark as Completed" style="border-radius:0.5rem;"><i
+								class="fa-solid fa-check"></i></a>
+						{% endif %}
+						<a href="/delete/{{ row.id }}" class="btn btn-sm btn-outline-danger" title="Delete"
+							style="border-radius:0.5rem;"><i class="fa-solid fa-trash"></i></a>
+					</td>
+				</tr>
+				{% else %}
+				<tr>
+					<td colspan="5" class="text-center py-5">
+						<div class="text-muted mb-3"><i class="fa-solid fa-folder-open fa-3x"></i></div>
+						<h5 class="fw-bold text-dark">No Assignments Found</h5>
+						<p>You're all caught up! Add a new task to track it here.</p>
+						<a href="/add-assignment" class="btn btn-outline mt-2">Add Assignment</a>
+					</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</div>
+{% endblock %}

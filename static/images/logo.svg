@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72">
+  <rect rx="12" width="72" height="72" fill="#0b5ed7"/>
+  <g fill="#fff" transform="translate(12,12)">
+    <path d="M12 6h36v6H12zM12 18h36v6H12zM12 30h36v6H12z"/>
+  </g>
+</svg>

@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}Add Task | EduTrack{% endblock %}
+{% block content %}
+<header class="page-header text-center mb-5">
+	<p class="text-muted fw-bold text-uppercase mb-1" style="letter-spacing:1px;">New Entry</p>
+	<h1 class="mb-0">Add Assignment</h1>
+</header>
+
+<div class="row justify-content-center">
+	<div class="col-md-8 col-lg-6">
+		<div class="glass p-4 p-md-5">
+			<form method="POST">
+				<div class="mb-4">
+					<label class="form-label" for="subject">Subject</label>
+					<div class="input-group">
+						<span class="input-group-text bg-transparent border-end-0 text-muted"><i
+								class="fa-solid fa-book-open"></i></span>
+						<input type="text" name="subject" id="subject" class="form-control border-start-0 ps-0"
+							placeholder="e.g. Mathematics" required>
+					</div>
+				</div>
+				<div class="mb-4">
+					<label class="form-label" for="title">Assignment Title</label>
+					<div class="input-group">
+						<span class="input-group-text bg-transparent border-end-0 text-muted"><i
+								class="fa-solid fa-pen-clip"></i></span>
+						<input type="text" name="title" id="title" class="form-control border-start-0 ps-0"
+							placeholder="e.g. Chapter 4 Exercises" required>
+					</div>
+				</div>
+				<div class="mb-5">
+					<label class="form-label" for="due_date">Due Date</label>
+					<div class="input-group">
+						<span class="input-group-text bg-transparent border-end-0 text-muted"><i
+								class="fa-regular fa-calendar-alt"></i></span>
+						<input type="date" name="due_date" id="due_date" class="form-control border-start-0 ps-0"
+							required>
+					</div>
+				</div>
+				<div class="d-grid gap-2">
+					<button type="submit" class="btn btn-primary btn-lg"><i class="fa-solid fa-save me-2"></i>Save
+						Assignment</button>
+					<a href="/assignments" class="btn btn-link text-muted mt-2 text-decoration-none">Cancel and
+						Return</a>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}

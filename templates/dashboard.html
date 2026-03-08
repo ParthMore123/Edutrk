@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block title %}Dashboard | EduTrack{% endblock %}
+{% block content %}
+<header class="page-header d-flex justify-content-between align-items-end flex-wrap gap-3">
+	<div>
+		<p class="text-muted fw-bold text-uppercase mb-1" style="letter-spacing:1px;">Overview</p>
+		<h1 class="mb-0">Welcome back, Student!</h1>
+	</div>
+	<div class="d-flex gap-2">
+		<a href="/subjects" class="btn btn-outline"><i class="fa-solid fa-book me-2"></i>Subjects</a>
+		<a href="/add-assignment" class="btn btn-primary"><i class="fa-solid fa-plus me-2"></i>Add Assignment</a>
+	</div>
+</header>
+
+<div class="stats-grid">
+	<div class="glass stat-card">
+		<div class="stat-info">
+			<p>Total Assignments</p>
+			<h3>{{ total }}</h3>
+		</div>
+		<div class="stat-icon icon-blue">
+			<i class="fa-solid fa-layer-group"></i>
+		</div>
+	</div>
+	<div class="glass stat-card">
+		<div class="stat-info">
+			<p>Pending</p>
+			<h3>{{ pending }}</h3>
+		</div>
+		<div class="stat-icon icon-orange">
+			<i class="fa-solid fa-clock"></i>
+		</div>
+	</div>
+	<div class="glass stat-card">
+		<div class="stat-info">
+			<p>Completed</p>
+			<h3>{{ completed }}</h3>
+		</div>
+		<div class="stat-icon icon-green">
+			<i class="fa-solid fa-check-circle"></i>
+		</div>
+	</div>
+</div>
+
+<div class="glass p-4 mt-4" style="border-radius:1rem;">
+	<div class="d-flex justify-content-between align-items-center mb-4">
+		<h3 class="h5 fw-bold mb-0">Quick Actions</h3>
+	</div>
+	<div class="row g-3">
+		<div class="col-md-6">
+			<a href="/assignments" class="text-decoration-none">
+				<div class="p-3 border rounded d-flex align-items-center"
+					style="background:rgba(255,255,255,0.5);transition:background 0.2s;color:var(--text-main);">
+					<div class="stat-icon icon-blue me-3" style="width:40px;height:40px;font-size:1rem;"><i
+							class="fa-solid fa-list"></i></div>
+					<div>
+						<h6 class="fw-bold mb-1">View All Assignments</h6>
+						<small class="text-muted">Review your upcoming tasks</small>
+					</div>
+				</div>
+			</a>
+		</div>
+		<div class="col-md-6">
+			<a href="/subjects" class="text-decoration-none">
+				<div class="p-3 border rounded d-flex align-items-center"
+					style="background:rgba(255,255,255,0.5);transition:background 0.2s;color:var(--text-main);">
+					<div class="stat-icon icon-green me-3" style="width:40px;height:40px;font-size:1rem;"><i
+							class="fa-solid fa-book"></i></div>
+					<div>
+						<h6 class="fw-bold mb-1">Browse Subjects</h6>
+						<small class="text-muted">See performance by subject</small>
+					</div>
+				</div>
+			</a>
+		</div>
+	</div>
+</div>
+{% endblock %}

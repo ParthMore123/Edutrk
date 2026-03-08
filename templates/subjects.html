@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Subjects | EduTrack{% endblock %}
+{% block content %}
+<header class="page-header d-flex justify-content-between align-items-end flex-wrap gap-3">
+	<div>
+		<p class="text-muted fw-bold text-uppercase mb-1" style="letter-spacing:1px;">Curriculum</p>
+		<h1 class="mb-0">My Subjects</h1>
+	</div>
+</header>
+
+<div class="row g-4 mt-2">
+	{% for s in subjects %}
+	<div class="col-md-6 col-lg-4">
+		<div class="glass h-100 position-relative overflow-hidden"
+			style="border-radius:1rem; transition:transform 0.3s ease; animation: fadeIn 0.5s ease-out;">
+			<!-- Decorative Background Gradient -->
+			<div class="position-absolute top-0 start-0 w-100"
+				style="height:60px; background:linear-gradient(90deg, var(--brand) 0%, rgba(99,102,241,0.5) 100%); opacity:0.15;">
+			</div>
+
+			<div class="p-4 pt-5 pb-4">
+				<div class="stat-icon icon-blue mb-3 shadow-sm" style="width:48px;height:48px;">
+					<i class="fa-solid fa-bookmark fs-5"></i>
+				</div>
+				<h4 class="fw-bold text-dark mb-1">{{ s.subject }}</h4>
+			</div>
+
+			<div class="bg-light p-3 border-top mt-auto d-flex justify-content-between align-items-center"
+				style="border-radius: 0 0 1rem 1rem;">
+				<small class="text-muted fw-bold text-uppercase px-2 text-decoration-none d-flex align-items-center"><i
+						class="fa-solid fa-folder-open me-2 text-primary"></i> <a href="/assignments"
+						class="text-muted text-decoration-none">View Related Tasks</a></small>
+			</div>
+		</div>
+	</div>
+	{% else %}
+	<div class="col-12">
+		<div class="glass text-center py-5">
+			<div class="text-muted mb-3"><i class="fa-solid fa-layer-group fa-3x"></i></div>
+			<h4 class="fw-bold text-dark">No Subjects Created Yet</h4>
+			<p>Subjects are collected automatically when you add an assignment.</p>
+			<a href="/add-assignment" class="btn btn-primary mt-3"><i class="fa-solid fa-plus me-2"></i>Add
+				Assignment</a>
+		</div>
+	</div>
+	{% endfor %}
+</div>
+{% endblock %}
