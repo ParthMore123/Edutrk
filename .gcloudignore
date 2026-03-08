@@ -1,0 +1,8 @@
+# This file specifies files that should be ignored by Google Cloud SDK commands.
+# Adjust it to your needs.
+
+# Ignore files and directories
+*.log
+*.tmp
+dist/
+node_modules/
